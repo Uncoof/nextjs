@@ -15,8 +15,9 @@ async function listInvoices() {
 
 export async function GET() {
   try {
-  	return Response.json(await listInvoices());
+    const invoices = await listInvoices();
+    return Response.json(invoices);
   } catch (error) {
-  	return Response.json({ error }, { status: 500 });
+    return Response.json({ error }, { status: 500 });
   }
 }
